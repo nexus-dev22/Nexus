@@ -1,5 +1,6 @@
 import { Button } from 'components/Button';
 import styled from 'styled-components/macro';
+import capitalized from 'utils/capitalized';
 import { opportunityType } from './data';
 
 const StyledSwitch = styled.div`
@@ -42,7 +43,7 @@ export const OpportunitySwitch = ({ handleChangeOpportunityType, selectedOpportu
           selectedOpportunityType === opportunityType.asset ? 'active-tab' : 'not-active'
         }`}
       >
-        {opportunityType.asset}
+        {capitalized(opportunityType.asset)}
       </Button>
       <Button
         onClick={handleChangeOpportunityType}
@@ -50,7 +51,7 @@ export const OpportunitySwitch = ({ handleChangeOpportunityType, selectedOpportu
           selectedOpportunityType === opportunityType.pool ? 'active-tab' : 'not-active'
         }`}
       >
-        {opportunityType.pool}
+        {capitalized(opportunityType.pool)}
       </Button>
     </StyledSwitch>
   );
