@@ -12,7 +12,7 @@ const opportunitiesAssets = [
     chain: 'ICON',
     protocol: '',
     apy: 'NEW ✨',
-    totalAssets: '29,453,798',
+    totalAssets: '29453798',
     image: IconLogo,
   },
   {
@@ -20,7 +20,7 @@ const opportunitiesAssets = [
     chain: 'ICON',
     protocol: 'Balance',
     apy: 'NEW ✨',
-    totalAssets: '13,445,372',
+    totalAssets: '13445372',
     image: BAINIcon,
   },
   {
@@ -28,7 +28,7 @@ const opportunitiesAssets = [
     chain: 'ICON',
     protocol: 'Balance',
     apy: 'NEW ✨',
-    totalAssets: '3,410,552',
+    totalAssets: '3410552',
     image: DollarIcon,
     type: 'BALN LP tokens',
     about:
@@ -50,7 +50,7 @@ const opportunitiesAssets = [
     chain: 'ICON',
     protocol: '-',
     apy: '27.04%',
-    totalAssets: '2,334,109',
+    totalAssets: '2334109',
     image: CFTIcon,
     type: 'BALN LP tokens',
     about:
@@ -72,7 +72,7 @@ const opportunitiesAssets = [
     chain: 'ICON',
     protocol: 'Yearn',
     apy: '7.24%',
-    totalAssets: '2,144,469',
+    totalAssets: '2144469',
     image: FINIcon,
   },
 ];

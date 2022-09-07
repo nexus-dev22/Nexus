@@ -14,6 +14,7 @@ import { useEffect } from 'react';
 const OpportunitiesStyled = styled.div`
   max-width: 1120px;
   margin: auto;
+  margin-bottom: 60px;
   display: flex;
   justify-content: center;
 
@@ -22,10 +23,19 @@ const OpportunitiesStyled = styled.div`
     ${media.md`
           width: ${`${window.screen.width}px`};
         `}
-    .table {
+    & .table {
       margin-top: 16px;
       Table {
         width: 100%;
+      }
+      & .ant-table-column-sorters {
+        display: flex;
+        align-items: center;
+        & .ant-table-column-sorter-inner {
+          display: inline-flex;
+          flex-direction: column;
+          margin-left: 8px;
+        }
       }
     }
   }
@@ -149,6 +159,11 @@ const OpportunitiesPage = () => {
       dataIndex: 'totalAssets',
       align: 'left',
       width: '150px',
+      sorter: {
+        compare: (a, b) => {
+          return parseFloat(a.totalAssets) - parseFloat(b.totalAssets);
+        },
+      },
     },
     {
       title: '',
@@ -268,14 +283,15 @@ const OpportunitiesPage = () => {
             headerColor={colors.grayAccent}
             backgroundColor={colors.darkBG}
             bodyText={'md'}
-            pagination={{
-              limit: LIMIT,
-              totalItem:
-                selectedOpportunityType === opportunityType.asset
-                  ? assetColumns.length
-                  : poolColumns.length,
-            }}
-            getItemsHandler={(current) => () => setCurrent(current)}
+
+            // pagination={{
+            //   limit: LIMIT,
+            //   totalItem:
+            //     selectedOpportunityType === opportunityType.asset
+            //       ? assetColumns.length
+            //       : poolColumns.length,
+            // }}
+            // getItemsHandler={(current) => () => setCurrent(current)}
           />
         </div>
       </div>
