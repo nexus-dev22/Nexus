@@ -15,8 +15,9 @@ const ButtonStyle = styled.button`
   border: solid ${({ $borderColor }) => ($borderColor ? `1px ${$borderColor}` : '0 transparent')};
 
   &:hover {
-    background-color: ${(props) => props.$backgroundColor};
-    color: ${(props) => props.$textColor};
+    background-color: ${({ backgroundColor, hoverBackgroundColor }) =>
+      hoverBackgroundColor ?? backgroundColor};
+    color: ${({ textColor, hoverTextColor }) => hoverTextColor ?? textColor};
     border: solid ${({ $borderColor }) => ($borderColor ? `1px ${$borderColor}` : '0 transparent')};
   }
   & :disabled {
@@ -26,6 +27,7 @@ const ButtonStyle = styled.button`
     cursor: 'not-allowed';
   }
 `;
+
 const Button = ({
   height,
   width,
@@ -36,9 +38,8 @@ const Button = ({
   borderColor,
   className,
   disabled,
-  disabledBackgroundColor,
-  disabledTextColor,
-
+  hoverTextColor,
+  hoverBackgroundColor,
   ...rest
 }) => {
   return (
@@ -51,8 +52,8 @@ const Button = ({
       $borderColor={borderColor}
       className={className}
       disabled={disabled}
-      disabledBackgroundColor={disabledBackgroundColor}
-      disabledTextColor={disabledTextColor}
+      hoverTextColor={hoverTextColor}
+      hoverBackgroundColor={hoverBackgroundColor}
       {...rest}
     >
       {children}

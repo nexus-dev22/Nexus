@@ -29,7 +29,6 @@ const opportunitiesAssets = [
     protocol: 'Balance',
     apy: 'NEW ✨',
     totalAssets: '3,410,552',
-    explored: true,
     image: DollarIcon,
     type: 'BALN LP tokens',
     about:
@@ -53,7 +52,6 @@ const opportunitiesAssets = [
     apy: '27.04%',
     totalAssets: '2,334,109',
     image: CFTIcon,
-    explored: true,
     type: 'BALN LP tokens',
     about:
       'Curve is an exchange liquidity title on Ethereum designed for: extremely efficient stablecoin trading, low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
@@ -102,7 +100,6 @@ const opportunitiesPools = [
     protocol: 'Balance',
     apy: 'NEW ✨',
     totalAssets: '3,410,552',
-    explored: true,
     image: DollarIcon,
     type: 'BALN LP tokens',
     about:
@@ -126,7 +123,6 @@ const opportunitiesPools = [
     apy: '27.04%',
     totalAssets: '2,334,109',
     image: CFTIcon,
-    explored: true,
     type: 'BALN LP tokens',
     about:
       'Curve is an exchange liquidity title on Ethereum designed for: extremely efficient stablecoin trading, low risk, supplemental fee income for liquidity providers, without an opportunity cost.',

@@ -9,6 +9,7 @@ import IconExIcon from 'assets/images/icon-ex.svg';
 import { Modal } from 'components/NotificationModal';
 import { OpportunityDetail } from './OpportunityDetail';
 import { OpportunitySwitch } from './OpportunitySwitch';
+import { useEffect } from 'react';
 
 const OpportunitiesStyled = styled.div`
   max-width: 1120px;
@@ -116,10 +117,13 @@ const OpportunitiesStyled = styled.div`
   `}
 `;
 
+const LIMIT = 2;
 const OpportunitiesPage = () => {
   const [selectedApy, setSelectedApy] = useState(0);
   const [selectedOpportunityType, setSelectedOpportunityType] = useState(opportunityType.asset);
   const [exploreData, setExploreData] = useState(null);
+  const [current, setCurrent] = useState(1);
+  const [tableData, setTableData] = useState(null);
 
   const baseColumns = [
     {
@@ -152,12 +156,14 @@ const OpportunitiesPage = () => {
       // eslint-disable-next-line react/display-name
       render: (_text, record) => (
         <Button
-          disabled={!record.explored}
           borderRadius={64}
           style={{ padding: '5px 17px' }}
-          disabledTextColor={'#83DEFD'}
-          disabledBackgroundColor={'#312F39'}
+          textColor={'#83DEFD'}
+          backgroundColor={'#312F39'}
+          hoverTextColor="white"
+          hoverBackgroundColor={colors.primaryBrand}
           onClick={() => setExploreData(record)}
+          className="styled-button"
         >
           Explore
         </Button>
@@ -198,6 +204,17 @@ const OpportunitiesPage = () => {
     },
     ...baseColumns,
   ];
+
+  useEffect(() => {
+    if (selectedOpportunityType === opportunityType.asset) {
+      setTableData({ columns: assetColumns, data: opportunitiesAssets });
+      return;
+    }
+    if (selectedOpportunityType === opportunityType.pool) {
+      setTableData({ columns: poolColumns, data: opportunitiesPools });
+    }
+  }, [selectedOpportunityType]);
+
   const handleChangeOpportunityType = () => {
     if (selectedOpportunityType === opportunityType.asset) {
       setSelectedOpportunityType(opportunityType.pool);
@@ -246,16 +263,19 @@ const OpportunitiesPage = () => {
         <div className="table">
           <Table
             rowKey="id"
-            columns={selectedOpportunityType === opportunityType.asset ? assetColumns : poolColumns}
-            dataSource={
-              selectedOpportunityType === opportunityType.asset
-                ? opportunitiesAssets
-                : opportunitiesPools
-            }
+            columns={tableData?.columns ?? []}
+            dataSource={tableData?.data ?? []}
             headerColor={colors.grayAccent}
             backgroundColor={colors.darkBG}
             bodyText={'md'}
-            pagination={{ limit: 2, totalItem: 10 }}
+            pagination={{
+              limit: LIMIT,
+              totalItem:
+                selectedOpportunityType === opportunityType.asset
+                  ? assetColumns.length
+                  : poolColumns.length,
+            }}
+            getItemsHandler={(current) => () => setCurrent(current)}
           />
         </div>
       </div>
