@@ -18,6 +18,7 @@ const StyledSwitch = styled.div`
     padding: 9px 23px;
     width: 97px;
     border-radius: 30px;
+    transition: all 0.4s ease-out;
   }
   & .right-btn {
     margin-left: -20px;
@@ -25,24 +26,10 @@ const StyledSwitch = styled.div`
   & .active-tab {
     background: #566afb;
     z-index: 10;
-    animation: linear infinite alternate;
-    animation-name: run;
-    animation-duration: 2s;
   }
   & .not-active {
-    background: #353242;
     z-index: 1;
-  }
-
-  @-webkit-keyframes run {
-    0% {
-      left: 0;
-      transform: translateX(0);
-    }
-    100% {
-      left: 100%;
-      transform: translateX(-100%);
-    }
+    background: #353242;
   }
 `;
 
