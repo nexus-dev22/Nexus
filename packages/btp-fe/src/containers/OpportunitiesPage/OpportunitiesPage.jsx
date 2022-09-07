@@ -127,12 +127,12 @@ const OpportunitiesStyled = styled.div`
   `}
 `;
 
-const LIMIT = 2;
+// const LIMIT = 2;
 const OpportunitiesPage = () => {
   const [selectedApy, setSelectedApy] = useState(0);
   const [selectedOpportunityType, setSelectedOpportunityType] = useState(opportunityType.asset);
   const [exploreData, setExploreData] = useState(null);
-  const [current, setCurrent] = useState(1);
+  //   const [current, setCurrent] = useState(1);
   const [tableData, setTableData] = useState(null);
 
   const baseColumns = [
@@ -208,7 +208,7 @@ const OpportunitiesPage = () => {
       title: 'Pool',
       dataIndex: 'title',
       align: 'left',
-      width: '250px',
+      width: '200px',
       // eslint-disable-next-line react/display-name
       render: (text, { image }) => (
         <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
