@@ -18,12 +18,13 @@ const StyledDetail = styled.div`
     justify-content: space-between;
     & .icon-wrapper {
       position: relative;
+      height: fit-content;
       .main-image {
         width: 64px;
       }
       .highlight-float-image {
         position: absolute;
-        bottom: 25px;
+        bottom: 0px;
         right: 0px;
         width: 24px;
         height: 24px;
