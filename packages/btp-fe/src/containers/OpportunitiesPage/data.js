@@ -8,22 +8,27 @@ import BTCIcon from 'assets/images/btc-large.svg';
 
 const opportunitiesAssets = [
   {
+    id: 'icx-asset',
     title: 'ICX',
     chain: 'ICON',
     protocol: '',
     apy: 'NEW ✨',
     totalAssets: '29453798',
     image: IconLogo,
+    fetchUrl: '',
   },
   {
+    id: 'baln-asset',
     title: 'BALN',
     chain: 'ICON',
     protocol: 'Balance',
     apy: 'NEW ✨',
     totalAssets: '13445372',
     image: BAINIcon,
+    fetchUrl: '',
   },
   {
+    id: 'bnUSD-asset',
     title: 'bnUSD',
     chain: 'ICON',
     protocol: 'Balance',
@@ -46,6 +51,7 @@ const opportunitiesAssets = [
     url: 'https://app.balanced.network',
   },
   {
+    id: 'cft-asset',
     title: 'CFT',
     chain: 'ICON',
     protocol: '-',
@@ -68,6 +74,7 @@ const opportunitiesAssets = [
     url: 'https://app.balanced.network',
   },
   {
+    id: 'fin-asset',
     title: 'FIN',
     chain: 'ICON',
     protocol: 'Yearn',
@@ -79,6 +86,7 @@ const opportunitiesAssets = [
 
 const opportunitiesPools = [
   {
+    id: 'icx/eth-pools',
     title: 'ICX/ETH',
     chain: 'ICON',
     protocol: '',
@@ -87,6 +95,7 @@ const opportunitiesPools = [
     image: IconLogo,
   },
   {
+    id: 'baln/sicx-pools',
     title: 'BALN/sICX',
     chain: 'ICON',
     protocol: 'Balance',
@@ -95,6 +104,7 @@ const opportunitiesPools = [
     image: BAINIcon,
   },
   {
+    id: 'bnusd/baln-pools',
     title: 'bnUSD/BALN',
     chain: 'ICON',
     protocol: 'Balance',
@@ -117,6 +127,7 @@ const opportunitiesPools = [
     url: 'https://app.balanced.network',
   },
   {
+    id: 'cft/icx-pools',
     title: 'CFT/ICX',
     chain: 'ICON',
     protocol: '-',
@@ -139,6 +150,7 @@ const opportunitiesPools = [
     url: 'https://app.balanced.network',
   },
   {
+    id: 'fin/eth-pools',
     title: 'FIN/ETH',
     chain: 'ICON',
     protocol: 'Yearn',

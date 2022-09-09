@@ -131,7 +131,7 @@ const OpportunitiesStyled = styled.div`
 const OpportunitiesPage = () => {
   const [selectedApy, setSelectedApy] = useState(0);
   const [selectedOpportunityType, setSelectedOpportunityType] = useState(opportunityType.asset);
-  const [exploreData, setExploreData] = useState(null);
+  const [modelOpportunityData, setModelOpportunityData] = useState(null);
   //   const [current, setCurrent] = useState(1);
   const [tableData, setTableData] = useState(null);
 
@@ -164,6 +164,10 @@ const OpportunitiesPage = () => {
           return parseFloat(a.totalAssets) - parseFloat(b.totalAssets);
         },
       },
+      // // eslint-disable-next-line react/display-name
+      // render: (text) => {
+      //   return text ?? <Skeleton />;
+      // },
     },
     {
       title: '',
@@ -177,7 +181,7 @@ const OpportunitiesPage = () => {
           backgroundColor={'#312F39'}
           hoverTextColor="white"
           hoverBackgroundColor={colors.primaryBrand}
-          onClick={() => setExploreData(record)}
+          onClick={() => setModelOpportunityData(record)}
           className="styled-button"
         >
           Explore
@@ -296,13 +300,13 @@ const OpportunitiesPage = () => {
         </div>
       </div>
       <Modal
-        display={!!exploreData}
-        setDisplay={() => setExploreData(null)}
+        display={!!modelOpportunityData}
+        setDisplay={() => setModelOpportunityData(null)}
         contentPadding="20px"
-        title={exploreData?.title || '-'}
+        title={modelOpportunityData?.title || '-'}
         titleStyle={{ textAlign: 'left' }}
       >
-        <OpportunityDetail {...exploreData} />
+        <OpportunityDetail {...modelOpportunityData} />
       </Modal>
     </OpportunitiesStyled>
   );
