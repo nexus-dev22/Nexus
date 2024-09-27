@@ -73,7 +73,7 @@ const TableStyled = styled(antdTable)`
     border-spacing: 0;
     tr {
       ${({ columns }) => {
-        return columns[0].width
+        return columns[0]?.width
           ? columns
               .map(
                 (col, idx) =>

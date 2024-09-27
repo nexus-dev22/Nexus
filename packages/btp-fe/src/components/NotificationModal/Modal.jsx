@@ -16,6 +16,8 @@ import exclamationPointIcon from 'assets/images/orange-exclamation-point-icon.sv
 
 const Wapper = styled.div`
   min-height: 100vh;
+  height: 100%;
+  overflow: scroll;
   width: 100%;
   display: ${({ isShowed }) => (isShowed ? 'grid' : 'none')};
   place-items: center;
@@ -32,7 +34,7 @@ const Wapper = styled.div`
 const Content = styled.div`
   width: ${({ width }) => width};
   margin-top: ${({ marginTop }) => marginTop};
-  padding: 23px 32px 32px;
+  padding: ${({ contentPadding }) => contentPadding ?? ' 23px 32px 32px'};
   word-break: break-word;
 
   display: flex;
@@ -119,16 +121,22 @@ export const Modal = memo(
     setDisplay = () => {},
     hasClosedBtn = true,
     hasHeading = true,
+    contentPadding,
+    titleStyle = {},
   }) => {
     const iconURL = icons[icon];
     const { text, ...others } = button;
 
     return (
       <Wapper isShowed={display}>
-        <Content width={width} marginTop={marginTop}>
+        <Content width={width} marginTop={marginTop} contentPadding={contentPadding}>
           {hasHeading && (
             <div className="heading">
-              {title && <h3 className="title">{title}</h3>}
+              {title && (
+                <h3 className="title" style={{ ...titleStyle }}>
+                  {title}
+                </h3>
+              )}
               {hasClosedBtn && (
                 <button className="close-btn" onClick={() => setDisplay(false)}></button>
               )}
